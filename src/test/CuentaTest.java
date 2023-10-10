@@ -37,8 +37,8 @@ class CuentaTest {
 	}
 	@Test
 	void testRetirar() {
-		cu.Retirar(1000);
-		assertEquals(0,cu.getSaldo());
+		cu.Retirar(200);
+		assertEquals(-200,cu.getSaldo()); //antes de cada test el salario que se le pasa por constructor es 0 por tanto el salario si le retiro tiene que ser negativo
 	}
 
 }

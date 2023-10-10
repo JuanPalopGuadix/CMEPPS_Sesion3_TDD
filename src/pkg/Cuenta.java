@@ -4,12 +4,12 @@ public class Cuenta {
 	double saldo;
 
 	public void ingresar(int i) {
-		this.saldo = 1000;
+		this.saldo =+ i;
 		
 	}
 
 	public void Retirar(int i) {
-		this.saldo = 0;
+		this.saldo =- i;
 		
 	}
 
