@@ -37,7 +37,8 @@ class CuentaTest {
 	}
 	@Test
 	void testRetirar() {
-	
+		cu.Retirar(1000);
+		assertEquals(0,cu.getSaldo());
 	}
 
 }

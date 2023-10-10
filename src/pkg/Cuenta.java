@@ -4,17 +4,17 @@ public class Cuenta {
 	double saldo;
 
 	public void ingresar(int i) {
-		// TODO Auto-generated method stub
+		this.saldo = 1000;
 		
 	}
 
 	public void Retirar(int i) {
-		// TODO Auto-generated method stub
+		this.saldo = 0;
 		
 	}
 
 	public double getSaldo() {
-		return 1000;
+		return saldo;
 	}
 
 	public Cuenta(String NumIdetificacion,String titular,double saldo) {
