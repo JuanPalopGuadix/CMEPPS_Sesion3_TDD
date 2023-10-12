@@ -11,11 +11,12 @@ import org.junit.jupiter.api.Test;
 
 class CuentaTest {
 
-	static Cuenta cu;
+	static Cuenta cu1,cu2;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		cu = new Cuenta("12345","Juan",0);
+		cu1 = new Cuenta("12345","Juan",50);
+		cu2 = new Cuenta("67890","Pepe",0);
 	}
 
 	@AfterAll
@@ -24,6 +25,7 @@ class CuentaTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		cu2.setSaldo(0);
 	}
 
 	@AfterEach
@@ -32,18 +34,31 @@ class CuentaTest {
 
 	@Test
 	void testRetirar() {
-		cu.Retirar(200);
-		assertEquals(0,cu.getSaldo()); 
+		cu2.Retirar(200);
+		assertEquals(-200,cu2.getSaldo()); 
 	}
 	@Test
 	void testIngresar() {
-		cu.ingresar(1000);
-		assertEquals(1000,cu.getSaldo());
+		cu2.ingresar(1000);
+		assertEquals(1000,cu2.getSaldo());
 	}
 	
 	@Test
 	void test0014() {
+		assertEquals(cu1.getSaldo(), 50);
+		assertEquals(cu2.getSaldo(), 0);
+
+		cu1.Retirar(200);
+		cu2.Retirar(350);
+		cu1.ingresar(100);
+		cu2.Retirar(200);
+		cu2.Retirar(150);
+		cu1.Retirar(200);
+		cu2.ingresar(50);
+		cu2.Retirar(100);
 		
+		assertEquals(cu1.getSaldo(), -250);
+		assertEquals(cu2.getSaldo(), -450);
 	}
 
 
